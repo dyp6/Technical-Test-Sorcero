@@ -13,15 +13,15 @@ This repository contains all the files needed to execute and understand my submi
 # Repository Structure with Directory Descriptions
 
 # Dataset Reference
-@inproceedings{kotonya-toni-2020-explainable,
-    title = "Explainable Automated Fact-Checking for Public Health Claims",
-    author = "Kotonya, Neema  and
-      Toni, Francesca",
-    booktitle = "Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)",
-    month = nov,
-    year = "2020",
-    address = "Online",
-    publisher = "Association for Computational Linguistics",
-    url = "https://www.aclweb.org/anthology/2020.emnlp-main.623",
-    pages = "7740--7754",
+@inproceedings{kotonya-toni-2020-explainable,  
+&ensp;&emsp;&emsp;title = "Explainable Automated Fact-Checking for Public Health Claims",\
+&ensp;&emsp;&emsp;author = "Kotonya, Neema  and\
+&ensp;&emsp;&emsp;&emsp;&emsp;&emsp;Toni, Francesca",\
+&ensp;&emsp;&emsp;booktitle = "Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)",\
+&ensp;&emsp;&emsp;month = nov,\
+&ensp;&emsp;&emsp;year = "2020",\
+&ensp;&emsp;&emsp;address = "Online",\
+&ensp;&emsp;&emsp;publisher = "Association for Computational Linguistics",\
+&ensp;&emsp;&emsp;url = "https://www.aclweb.org/anthology/2020.emnlp-main.623", \
+&ensp;&emsp;&emsp;pages = "7740--7754",\
 }
