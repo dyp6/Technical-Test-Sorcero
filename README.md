@@ -1,5 +1,5 @@
 # Technical Test for Sorcero Position
-This repository contains all the files used to complete the AI infrastructure and ML engineer technical test provided in the application process for Sorcero
+This repository contains all the files needed to execute and understand my submission to complete the AI infrastructure and ML engineer technical test provided in the application process for Sorcero
 
 # Technical Test Assignment
 **Task:** Transfer learning for text classification
