@@ -5,7 +5,7 @@ There will be different subdirectories representing different 'types' of data fi
 File Structure
 
 	../Data
-		/Raw_Data - The raw data CSVs provided on huggingface.com in the HEALTH_FACTS Dataset
-			train.csv - The training data set of Health Facts observations provided in the HEALTH_FACTS Dataset on huggingface.com
-			test.csv - The testing data set of Health Facts observations provided in the HEALTH_FACTS Dataset on huggingface.com
-			dev.csv - The development data set of Health Facts observations provided in the HEALTH_FACTS Dataset on huggingface.com
+		/Raw_Data - The raw data TSVs provided on huggingface.com in the HEALTH_FACTS Dataset
+			train.tsv - The training data set of Health Facts observations provided in the HEALTH_FACTS Dataset on huggingface.com
+			test.tsv - The testing data set of Health Facts observations provided in the HEALTH_FACTS Dataset on huggingface.com
+			dev.tsv - The development data set of Health Facts observations provided in the HEALTH_FACTS Dataset on huggingface.com
