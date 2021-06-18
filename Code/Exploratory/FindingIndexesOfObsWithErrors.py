@@ -1,10 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jun 16 16:59:56 2021
-
-@author: postd
-"""
 import pandas as pd
 import numpy as np
 import os
@@ -58,7 +51,6 @@ for i in range(len(test)):
             test_idx.append(i)
 test_err = test.loc[test_idx,:]
 
-# All test set rows are okay, so no changes needed for it
 print(tr_idx)
 print(dev_idx)
 print(test_idx)
