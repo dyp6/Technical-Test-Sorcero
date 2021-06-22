@@ -2,14 +2,12 @@ import pandas as pd
 import numpy as np
 import os
 
-path =  "/home/postd/Documents/gitRepos/Technical-Test-Sorcero/"
-os.chdir(path)
 # Need to figure out where the original shift happened and shift
 # the rest of the values in the rows
 # Going to need the possible labels to find rows with their labels missing
 labels = ["true","false","mixture","unproven"]
-
-train = pd.read_csv("Data/RawData/train.tsv",sep="\t")
+# Path needs to be set to the location of this script
+train = pd.read_csv("../Data/RawData/train.tsv",sep="\t")
 
 tr_idx = []
 for i in range(len(train)):
@@ -22,7 +20,7 @@ for i in range(len(train)):
             tr_idx.append(i)
 tr_err = train.loc[tr_idx,:]
 # Dev Set
-dev = pd.read_csv("Data/RawData/dev.tsv",sep="\t")
+dev = pd.read_csv("../Data/RawData/dev.tsv",sep="\t")
 
 dev_idx = []
 for i in range(len(dev)):
@@ -35,7 +33,7 @@ for i in range(len(dev)):
             dev_idx.append(i)
 dev_err = dev.loc[dev_idx,:]
 # Test Set
-test = pd.read_csv("Data/RawData/test.tsv",sep="\t")
+test = pd.read_csv("../Data/RawData/test.tsv",sep="\t")
 test = test.iloc[:,1:]
 test = test.reset_index()
 test.loc[:,"claim_id"] = test.loc[:,"claim_id"].astype("float")
