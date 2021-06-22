@@ -10,6 +10,14 @@ This repository contains all the files needed to execute and understand my submi
 * Huggingface transformers: https://huggingface.co/models
 * Huggingface dataset HEALTH_FACT: https://huggingface.co/datasets/health_fact
 
+# Repository Structure and Code Execution
+### Repository
+I broke the repository into a Code and a Data directory because it is and easy way to organize files at first, though I will likely reorganize it. The Code directory has all of the scripts that I used and made to run the text-classification models and extract the resulting accuracies. The Data directory is just two folders, one with the Raw .tsv files and the other has cleaned .csv files that were used as input for the models.
+
+### Code Execution
+The fine-tuned model files that were saved after training on the dataset were too large to be saved in a GitHub repository, so there is no way to just run the prediction on the test file. The overall instructions for using the run_text_classification.py script, that executes the models, is about the same as at this link https://github.com/huggingface/transformers/tree/master/examples/tensorflow/text-classification. However, the arguments for the input files are "--train_file claimLabel_train.csv", "--validation_file claimLabel_dev.csv", "--test_file claimLabel_test.csv", and "--output_dir output_files/<model_name>" (this directory needed to be outside of the Git Repository, so the models weren't saved inside it). The other argument, not discussed at that link, that I put in the "python run_text_classification.py " command was "--num_training_epochs 4"
+
+The ManualTextClassification.py file is not complete yet, but that is the script that I plan to use to run the XLNet and T5 models later on and use the same style as the run_text_classification.py example script I used above.
 # Results and Discussion
 ### Overview
 Based on the reading I did about transformer models and text-classification, I found six transformers on huggingface.co/models that I wanted to test on this task. Those models were
