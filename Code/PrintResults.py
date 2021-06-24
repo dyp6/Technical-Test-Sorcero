@@ -1,8 +1,8 @@
 import pandas as pd
 
-def extractPreds(model_name):
+def extractPreds(path):
     preds = []
-    f =  open("output_files/"+model_name+"/test_results.txt",'r')
+    f =  open("output_files/"+path,'r')
 
     preds = []
     for line in f:
@@ -43,7 +43,7 @@ def main():
     # Working directory needs to be set to the Code folder of the repository
     test = pd.read_csv("../Data/RawDataCsvFormat/claimLabel_test.csv")
     
-    bert_preds = extractPreds('bert')
+    bert_preds = extractPreds('bert/test_results_4_4_1.txt')
     distilbert_preds = extractPreds('distilbert')
     ElDisc_preds = extractPreds('electra_discriminator')
     
