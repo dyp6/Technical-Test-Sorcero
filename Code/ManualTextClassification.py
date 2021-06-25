@@ -1,22 +1,17 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Jun 21 17:40:23 2021
-
-@author: postd
-"""
-# SOURCE: https://atheros.ai/blog/text-classification-with-transformers-in-tensorflow-2
+# MODIFIED FROM: https://atheros.ai/blog/text-classification-with-transformers-in-tensorflow-2
 import pandas as pd
 import tensorflow as tf
 import tensorflow_datasets as tfds
 from transformers import TFBertForSequenceClassification, BertTokenizer
 
-def convert_example_to_feature(tokenizer,review,max_length):
+def convert_example_to_feature(tokenizer,claim,max_length):
   
   # combine step for tokenization, WordPiece vector mapping and will
   #add also special tokens and truncate reviews longer than our max length
   
-  return tokenizer.encode_plus(review, 
+  return tokenizer.encode_plus(claim, 
                 add_special_tokens = True, # add [CLS], [SEP]
+                max_length = max_length,
                 paddding = True, # add [PAD] tokens
                 return_attention_mask = True, # add attention mask to not focus on pad tokens
               )
@@ -50,6 +45,9 @@ def encode_examples(ds,tkzr,max_len, limit=-1):
                                              token_type_ids_list,
                                              label_list)).map(map_example_to_dict)
 def main():
+    # tf.data Guide: https://www.tensorflow.org/guide/data
+    # LOOK UP TFRecord Format for tf.data.TFRecordDataset()
+    # https://www.tensorflow.org/api_docs/python/tf/data/TFRecordDataset
     tr = pd.read_csv("../Data/RawDataCsvFormat/train.csv")
     val = pd.read_csv("../Data/RawDataCsvFormat/dev.csv")
     te = pd.read_csv("../Data/RawDataCsvFormat/test.csv")
@@ -58,9 +56,9 @@ def main():
               split = (tfds.Split.TRAIN, tfds.Split.TEST),
               as_supervised=True,
               with_info=True)
-    
+    print('info',ds_info)
     # can be up to 512 for BERT
-    max_length = 512
+    max_length = 256
     
     # the recommended batches size for BERT are 16,32 ... however on this 
     # dataset we are overfitting quite fast 
