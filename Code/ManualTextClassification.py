@@ -17,8 +17,7 @@ def convert_example_to_feature(tokenizer,review,max_length):
   
   return tokenizer.encode_plus(review, 
                 add_special_tokens = True, # add [CLS], [SEP]
-                max_length = max_length, # max length of the text that can go to BERT
-                pad_to_max_length = True, # add [PAD] tokens
+                paddding = True, # add [PAD] tokens
                 return_attention_mask = True, # add attention mask to not focus on pad tokens
               )
 
@@ -51,9 +50,9 @@ def encode_examples(ds,tkzr,max_len, limit=-1):
                                              token_type_ids_list,
                                              label_list)).map(map_example_to_dict)
 def main():
-    train = pd.read_csv("../Data/RawDataCsvFormat/claimLabel_train.csv")
-    val = pd.read_csv("../Data/RawDataCsvFormat/claimLabel_dev.csv")
-    test = pd.read_csv("../Data/RawDataCsvFormat/claimLabel_test.csv")
+    tr = pd.read_csv("../Data/RawDataCsvFormat/train.csv")
+    val = pd.read_csv("../Data/RawDataCsvFormat/dev.csv")
+    te = pd.read_csv("../Data/RawDataCsvFormat/test.csv")
     
     (ds_train, ds_test), ds_info = tfds.load('imdb_reviews', 
               split = (tfds.Split.TRAIN, tfds.Split.TEST),
@@ -68,7 +67,7 @@ def main():
     # and smaller batches work like a regularization. 
     # You might play with adding another dropout layer instead.
     
-    batch_size = 6
+    batch_size = 16
     bert_tokenizer = BertTokenizer.from_pretrained('bert-base-cased')
     
     # train dataset
